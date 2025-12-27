@@ -37,7 +37,7 @@
         // Replace with your actual Google Web App URL
         const scriptUrl = "https://script.google.com/macros/s/AKfycbwwYx3poRjMPLVo1jJcnuWakgIUYgziLoLS09nzmaaORwNv3VwJrBhdYLua8iYB0T9ZWg/exec"; 
 
-        try {
+        /*try {
             const response = await fetch(`${scriptUrl}?q=${encodeURIComponent(q)}`);
             const data = await response.json();
             resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
@@ -46,7 +46,21 @@
             console.error(error);
         } finally {
             btn.disabled = false;
-        }
+        }*/
+
+        // Create a unique callback name
+    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    
+    // Define what to do when the data arrives
+    window[callbackName] = function(data) {
+        document.getElementById('response').innerText = data.answer;
+        delete window[callbackName]; // Cleanup
+    };
+
+    // Inject the script tag
+    const script = document.createElement('script');
+    script.src = `${scriptUrl}?q=${encodeURIComponent(q)}&callback=${callbackName}`;
+    document.body.appendChild(script);
     }
 </script>
 
