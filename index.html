@@ -9,7 +9,7 @@
         $(document).ready(function(){
             
         });
-    </script>
+    </script> 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #f4f7f6; }
         .chat-container { width: 400px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -30,7 +30,7 @@
 </div>
 
 <script>
-    /*async function askBot() {
+    async function askBot() {
         const q = document.getElementById('question').value;
         const btn = document.getElementById('sendBtn');
         const resDiv = document.getElementById('response');
@@ -52,7 +52,7 @@
                           credentials: 'include'
                         });
             const data = await response.json();*/
-         /*   $.getJSON(`${scriptUrl}?q=${encodeURIComponent(q)}`,
+            $.getJSON(`${scriptUrl}?q=${encodeURIComponent(q)}`,
                       function(data){
                           resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
                       });
@@ -65,21 +65,21 @@
         }
 
         // Create a unique callback name
-   /* const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+        /*const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+        
+        // Define what to do when the data arrives
+        window[callbackName] = function(data) {
+            document.getElementById('response').innerText = data.answer;
+            delete window[callbackName]; // Cleanup
+        };
     
-    // Define what to do when the data arrives
-    window[callbackName] = function(data) {
-        document.getElementById('response').innerText = data.answer;
-        delete window[callbackName]; // Cleanup
-    };
+        // Inject the script tag
+        const script = document.createElement('script');
+        script.src = `${scriptUrl}?q=${encodeURIComponent(q)}&callback=${callbackName}`;
+        document.body.appendChild(script);*/
+    }
 
-    // Inject the script tag
-    const script = document.createElement('script');
-    script.src = `${scriptUrl}?q=${encodeURIComponent(q)}&callback=${callbackName}`;
-    document.body.appendChild(script);*/
-    /*}*/
-
-    function askBot() {
+ /*   function askBot() {
     const q = document.getElementById('question').value;
     const resDiv = document.getElementById('response');
     const scriptUrl = "https://script.google.com/macros/s/AKfycbxU9uvcF1A9RCud6w7BlBas5WTCgaNyhOhJSJXOZScrU61HAqK9qAGsiuWt8vFz9mEnEQ/exec"; // Your /exec URL
@@ -110,7 +110,7 @@
     };
 
     document.body.appendChild(script);
-}
+}*/
 </script>
 
 </body>
