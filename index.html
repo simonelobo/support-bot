@@ -7,10 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <script>
         $(document).ready(function(){
-            $.getJSON("https://script.google.com/macros/s/AKfycbxAtqwoAg2IJGI5z30KEWO26MNbd76vBM0392hW9JLEAXahaM9mk_9AVRu6knz_KYNROA/exec",
-                      function(data){
-                          $('#DivTest').html(data.msg);
-                      });
+            
         });
     </script>
     <style>
@@ -24,7 +21,7 @@
 </head>
 <body>
 <div id="DivTest"></div>
-<!--<div class="chat-container">
+<div class="chat-container">
     <h3>Customer Support</h3>
     <p style="font-size: 12px; color: #666;">I'll check our docs first, then use AI if needed.</p>
     <input type="text" id="question" placeholder="Ask me anything...">
@@ -53,9 +50,13 @@ const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
                           credentials: 'include'
                         });
             const data = await response.json();*/
-            $.getJSON(urlQuery, function(data) {
+            $.getJSON("https://script.google.com/macros/s/AKfycbxAtqwoAg2IJGI5z30KEWO26MNbd76vBM0392hW9JLEAXahaM9mk_9AVRu6knz_KYNROA/exec",
+                      function(data){
+                          resDiv.innerHTML = `<strong>Answer:</strong><br>${data.msg}`;
+                      });
+            /*$.getJSON(urlQuery, function(data) {
             resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
-            });
+            });*/
         } catch (error) {
             resDiv.innerText = "Error connecting to server. Check console.";
             console.error(error);
