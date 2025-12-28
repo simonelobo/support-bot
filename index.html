@@ -42,8 +42,10 @@
 
         // Replace with your actual Google Web App URL
         const scriptUrl = "https://script.google.com/macros/s/AKfycbxAtqwoAg2IJGI5z30KEWO26MNbd76vBM0392hW9JLEAXahaM9mk_9AVRu6knz_KYNROA/exec"; 
-const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
+        //debug messages start
+        const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
         console.log(urlQuery);
+        //debug messages end
         try {
             /*const response = await fetch(urlQuery, {
                           mode: 'cors',
@@ -54,9 +56,7 @@ const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
                       function(data){
                           resDiv.innerHTML = `<strong>Answer:</strong><br>${data.msg}`;
                       });
-            /*$.getJSON(urlQuery, function(data) {
-            resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
-            });*/
+            //resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
         } catch (error) {
             resDiv.innerText = "Error connecting to server. Check console.";
             console.error(error);
@@ -79,6 +79,6 @@ const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
     document.body.appendChild(script);*/
     }
 </script>
--->
+
 </body>
 </html>
