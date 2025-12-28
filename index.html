@@ -36,9 +36,13 @@
 
         // Replace with your actual Google Web App URL
         const scriptUrl = "https://script.google.com/macros/s/AKfycbzs1Wa9z_A3CEF_4-XeJ6xzp9w_gnLxhMFnujtaoxD-USuPfJQpQ2tBtpvpSFOgrwWMWg/exec"; 
-
+const urlQuery = ${scriptUrl}?q=${encodeURIComponent(q)};
+        console.log(urlQuery);
         try {
-            const response = await fetch(`${scriptUrl}?q=${encodeURIComponent(q)}`);
+            const response = await fetch(urlQuery, {
+  mode: 'cors',
+  credentials: 'include'
+});
             const data = await response.json();
             resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
         } catch (error) {
