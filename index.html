@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Support Engine</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #f4f7f6; }
         .chat-container { width: 400px; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -36,14 +37,15 @@
 
         // Replace with your actual Google Web App URL
         const scriptUrl = "https://script.google.com/macros/s/AKfycbzs1Wa9z_A3CEF_4-XeJ6xzp9w_gnLxhMFnujtaoxD-USuPfJQpQ2tBtpvpSFOgrwWMWg/exec"; 
-const urlQuery = '${scriptUrl}?q=${encodeURIComponent(q)}';
+const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
         console.log(urlQuery);
         try {
-            const response = await fetch(urlQuery, {
+            /*const response = await fetch(urlQuery, {
   mode: 'cors',
   credentials: 'include'
 });
-            const data = await response.json();
+            const data = await response.json();*/
+            $.getJSON(urlQuery);
             resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
         } catch (error) {
             resDiv.innerText = "Error connecting to server. Check console.";
