@@ -41,7 +41,7 @@
         resDiv.innerText = "Searching knowledge base...";
 
         // Replace with your actual Google Web App URL
-        const scriptUrl = "https://script.google.com/macros/s/AKfycbzs1Wa9z_A3CEF_4-XeJ6xzp9w_gnLxhMFnujtaoxD-USuPfJQpQ2tBtpvpSFOgrwWMWg/exec"; 
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbxAtqwoAg2IJGI5z30KEWO26MNbd76vBM0392hW9JLEAXahaM9mk_9AVRu6knz_KYNROA/exec"; 
 const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
         console.log(urlQuery);
         try {
@@ -50,7 +50,7 @@ const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
                           credentials: 'include'
                         });
             const data = await response.json();*/
-            $.getJSON("https://script.google.com/macros/s/AKfycbxAtqwoAg2IJGI5z30KEWO26MNbd76vBM0392hW9JLEAXahaM9mk_9AVRu6knz_KYNROA/exec",
+            $.getJSON(`${scriptUrl}?q=${encodeURIComponent(q)}`,
                       function(data){
                           resDiv.innerHTML = `<strong>Answer:</strong><br>${data.msg}`;
                       });
