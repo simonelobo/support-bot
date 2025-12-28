@@ -41,12 +41,13 @@ const urlQuery = `${scriptUrl}?q=${encodeURIComponent(q)}`;
         console.log(urlQuery);
         try {
             /*const response = await fetch(urlQuery, {
-  mode: 'cors',
-  credentials: 'include'
-});
+                          mode: 'cors',
+                          credentials: 'include'
+                        });
             const data = await response.json();*/
-            $.getJSON(urlQuery);
+            $.getJSON(urlQuery, function(data) {
             resDiv.innerHTML = `<strong>Answer:</strong><br>${data.answer}`;
+            });
         } catch (error) {
             resDiv.innerText = "Error connecting to server. Check console.";
             console.error(error);
